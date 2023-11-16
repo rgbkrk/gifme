@@ -34,6 +34,26 @@ cargo build --release
 
 3. Use the executable from `target/release/gifme`
 
+## Post-Build Installation
+
+After building the project, you may want to create a symbolic link to the `gifme` executable in your `~/bin/` directory for easier access. You can do this with the following command:
+
+```bash
+ln -s $PWD/target/release/gifme ~/bin/
+```
+
+This command creates a symbolic link to the `gifme` executable in the `~/bin/` directory. The `$PWD` variable represents the current directory, which should be the root directory of the `gifme` project if you've followed the build instructions.
+
+Please ensure that `~/bin/` is included in your PATH. If it's not, you can add it with the following command:
+
+
+```
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc
+```
+
+This command appends the line `export PATH="$HOME/bin:$PATH"` to your `~/.zshrc` file, which makes your shell able to see `gifme` from anywhere.
+
+
 ## Usage
 
 Run `gifme` to fetch a random GIF.
