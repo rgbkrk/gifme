@@ -41,6 +41,7 @@ Run `gifme` to fetch a random GIF.
 * Fetch a random GIF: `gifme`
 * Fetch a GIF with a specific tag: `gifme lambda`
 * Fetch a GIF, limited by content rating: `gifme --rating=pg`
+* Pipe tags to `gifme` (`command | gifme`)
 
 ### Options
 
@@ -50,7 +51,8 @@ Run `gifme` to fetch a random GIF.
 ## Roadmap
 
 * [x] CLI that can display a random GIF
-* [ ] Able to pipe tags to `gifme`. E.g. `echo "hey" | gifme`
+* [x] Able to pipe tags to `gifme`. E.g. `echo "hey" | gifme`
+* [ ] Expose more GIPHY endpoints for funsies
 
 ## Contributing
 

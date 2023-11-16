@@ -6,6 +6,8 @@ use reqwest;
 use serde_json::Value;
 use std::error::Error;
 
+use atty::Stream;
+
 #[macro_use]
 extern crate query_params;
 
@@ -34,7 +36,15 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let args = Args::parse();
 
     let tag = if args.tags.is_empty() {
-        None
+        // The user ran `gifme` in the terminal with no pipes
+        if atty::is(Stream::Stdin) {
+            None
+        // Getting piped input
+        } else {
+            let mut buffer = String::new();
+            std::io::stdin().read_line(&mut buffer)?;
+            Some(buffer.trim().to_string())
+        }
     } else {
         Some(args.tags.join(","))
     };
